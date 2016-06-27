@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>techNoSense: the foolish geek speech generator</title>
+</head>
+
+<body>
+
+	<h1>Bienvenu sur techNoSense</h1> 
+	<p style="font-size:1.5em"><i>Le générateur de charabia geek purement insensé!</i></p>
+
+	<form id="citForm">
+		 <p><b>Combien voulez-vous générer de citations?</b></p>
+  		<label for="citnumber">Tapez un chiffre compris entre 1 et 5</label>
+  		<input id="citnumber" type="text" value="1">
+  		<br/>
+  		<span id="info" style="color:red">Le chiffre doit être compris entre 1 et 5</span>
+  		<p><b>Quelle longueur?</b></p>
+  		<input id="citlength1" type="radio" name="citlength" value="short" checked >Courte</br>
+  		<input id="citlength2" type="radio" name="citlength" value="long" >Longue</br>
+	</form>
+
+	<br/>
+	
+	<input id="generator" type="button" value="GENERER">
+
+	<div id="citframe">	
+	</div>
+
+   	<script src="js/script.js"></script>
+
+</body>
+</html>

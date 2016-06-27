@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<meta name="Content-language" content="english">
+	<link rel="stylesheet" href="css/style.css">
+	<title>My Coding Lab</title>
+</head>
+
+<body>
+	<div class="main-frame">
+
+		<header>
+			<div class="hdr-img-l">
+				<img src="http://image.flaticon.com/icons/svg/123/123417.svg" alt="Geek boy">
+			</div>
+			<div class="hdr-title">
+				<p>My Coding Lab</p>
+			</div>
+			<div class="hdr-img-r">
+				<img src="http://image.flaticon.com/icons/svg/123/123381.svg" alt="Chemistry flask">
+			</div>
+		</header>
+
+		<div class="main-content">
+<!-- 			<div class="card">
+				<a class="card-hdr" href="http://google.fr">
+					<p>findUrWayther</p>
+				</a>
+				<div class="card-body">
+					<p>Small weather app using data from the WeatherUnderground API and reproducing
+						 Google's weather app UI.</p>
+					<div class="card-logos">
+						<div class="card-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/512px-Unofficial_JavaScript_logo_2.svg.png" alt="JavaScript logo"></div>
+						<div class="card-logo"><img src="http://precision-software.com/wp-content/uploads/2014/04/jQurery.gif" alt="JavaScript logo"></div>
+					</div>
+					<div class="card-demo-link"><a href="app/findUrWayther/index.html" target="_blank"> >>> Web Demo</a></div>
+				</div>
+			</div> -->
+		</div>
+
+	</div>
+	<script src="lib/jquery/2.2.3/jquery.min.js"></script>
+	<script>
+		$(function() {
+
+			var projects = [
+				{
+					"project-name":"findUrWayther",
+					"repo-url":"https://github.com/MTovmassian/MTovmassian.github.io/tree/master/app/findUrWayther",
+					"purpose":"Weather app using data from the WeatherUnderground API and reproducing Google's weather app UI.",
+					"logos":["javascript", "jquery"],
+					"webdemo-url":"https://mtovmassian.github.io/app/findUrWayther/index.html" 
+				},
+								{
+					"project-name":"techNoSense",
+					"repo-url":"https://github.com/MTovmassian/MTovmassian.github.io/tree/master/app/techNoSense",
+					"purpose":"Fun app that generates random foolish geek quotes in French.",
+					"logos": ["javascript"],
+					"webdemo-url":"https://mtovmassian.github.io/app/techNoSense/index.html"
+				},
+			];
+
+			var logos = {
+				"javascript" : { 
+					"logo-name":"JavaScript",
+					"logo-url":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/512px-Unofficial_JavaScript_logo_2.svg.png"
+				},
+				"jquery" : {
+					"logo-name":"jQuery",
+					"logo-url":"http://precision-software.com/wp-content/uploads/2014/04/jQurery.gif"
+				},
+				"python" : {
+					"logo-name":"Python",
+					"logo-url":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1024px-Python-logo-notext.svg.png"
+				}
+			}
+
+			for (var i = 0; i < projects.length; i++) {
+				projectName = projects[i]['project-name'];
+				repoUrl = projects[i]['repo-url'];
+				purpose = projects[i].purpose;
+				
+				card = $('<div class="card"></div>');
+				card.appendTo($('.main-content'));
+				
+				cardHdr = $('<a class="card-hdr" href="' + repoUrl + '"><p>' + projectName + '</p></a>');
+				cardHdr.appendTo($('.card').eq(i));
+
+				cardBody = $('<div class="card-body"><p>' + purpose + '</p></div>')
+				cardBody.appendTo($('.card').eq(i))
+
+				cardLogos = $('<div class="card-logos"></div>');
+				cardLogos.appendTo($('.card-body').eq(i))
+
+				for (var j = 0; j < projects[i].logos.length; j++) {
+					logoSrc = logos[projects[i].logos[j]]["logo-url"];
+					logoAlt = logos[projects[i].logos[j]]["logo-name"];;
+					cardLogo = $('<div class="card-logo"><img src="' + logoSrc + '" alt="' + logoAlt + '"</div>');
+					cardLogo.appendTo($('.card-logos').eq(i));
+				}
+				
+				if(projects[i]['webdemo-url']) {
+					webDemoUrl = projects[i]['webdemo-url'];
+					cardDemoLink = $('<div class="card-demo-link"><a href="' + webDemoUrl + '" target="_blank"> >>> Web Demo</a></div>');
+					cardDemoLink.appendTo($('.card-body').eq(i));
+				}				 
+			}
+
+
+
+		})
+	</script>
+</body>
+
+</html>

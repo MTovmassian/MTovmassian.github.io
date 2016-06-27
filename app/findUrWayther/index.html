@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<meta name="Content-language" content="english">
+	<link rel="stylesheet" href="css/style.css">
+	<title>findUrWayther</title>
+</head>
+<body>
+	<div id="main-frame">
+		<div id="content-frame">
+			<div id="summary">
+				<p id="location">Vancouver</p>
+				<p id="long-date">Long date</p>
+				<p id="fcast-text">Forecast text</p>
+			</div>
+			<div id="conditions">
+				<div id="fcast-details-left">
+					<div class="fcast-logo"><img src="https://icons.wxug.com/i/c/k/partlycloudy.gif" alt="titi"></div>
+					<p id="temperature">°C</p>
+				</div>
+				<div id="fcast-details-right">
+					<p>Precipitations: </p>
+					<p>Humidity: </p>
+					<p>Wind: </p>
+				</div>
+			</div>
+
+			<div id="fcast-gallery">
+
+<!-- 			<div id="fcast-day1" class="fcast-day-card" data-day-num="0">
+					<p class="short-date">Fri.<p>
+					<div class="fcast-logo2">
+						<img src="" alt="titi">
+					</div>
+					<div class="temperature-maxmin">
+						<p class="temperature-max">23 °C</p>
+						<p class="temperature-min">14 °C</p>
+					</div>
+				</div>
+ -->
+			</div>
+
+		</div>
+
+	</div>
+	<script src="../../lib/jquery/2.2.3/jquery.min.js"></script>
+	<script src="../../lib/ajax/ajax.js"></script>
+	<script>
+    	$(function() {
+
+			function ajaxGet(url, callback) {
+				var req = new XMLHttpRequest();
+				req.open("GET", url);
+				req.addEventListener("load", function () {
+					if (req.status >= 200 && req.status < 400) {
+						callback(req.responseText);
+					} else {
+						console.error(req.status + " " + req.statusText + " " + url);
+					}
+				});
+    			req.addEventListener("error", function () {
+        			console.error("Erreur réseau avec l'URL " + url);
+    			});
+    			req.send(null);
+			}
+
+			function buildFcstGallery() {
+				for (var i = 0; i < 8; i++) {
+					fcastGallery = $('#fcast-gallery')
+					fcastDayCard = $('<div id="fcast-day' + i + '" class="fcast-day-card" data-day-num="' + i + '"></div>');
+					fcastContent = $('<p class="short-date"><p><div class="fcast-logo2"><img src="" alt="titi"></div><div class="temperature-maxmin"><p class="temperature-max"></p><p class="temperature-min"></p></div>');
+					fcastContent.appendTo(fcastDayCard);
+					fcastDayCard.appendTo(fcastGallery)
+				}
+			}
+
+			function updateFcstGallery(forecastData) {
+				for (var i = 0; i < 8; i++) {
+					shortDate = forecastData[i].date.weekday_short + "."
+					$('div[data-day-num='+i+']>.short-date').text(shortDate);
+					fcastLogo2 = forecastData[i].icon_url
+					$('div[data-day-num='+i+']>.fcast-logo2>img').attr('src', fcastLogo2)
+					temperatureMax = forecastData[i].high.celsius + "°C"
+					$('div[data-day-num='+i+']>.temperature-maxmin>.temperature-max').text(temperatureMax)
+					temperatureMin = forecastData[i].low.celsius + "°C"
+					$('div[data-day-num='+i+']>.temperature-maxmin>.temperature-min').text(temperatureMin)
+				}
+			}
+
+			function updateFcstDay(index, forecastData) {
+				weekDay = forecastData[index].date.weekday;
+				numDay = forecastData[index].date.day;
+				month = forecastData[index].date.monthname;
+				year = forecastData[index].date.year;
+				$('#long-date').text(weekDay + " " + month + " " + numDay + " " + year);
+
+				fcastText = forecastData[index].conditions;
+				$('#fcast-text').text(fcastText);
+				fcastLogo = forecastData[index].icon_url;
+				$('.fcast-logo>img').attr('src', fcastLogo);
+				temperature = forecastData[index].high.celsius + " °C";
+				$('#temperature').text(temperature)
+ 
+				precipitations = "Precipitations: " + forecastData[index].qpf_allday.mm + " mm";
+				$('#fcast-details-right>p').eq(0).text(precipitations);
+				humidity = "Himidity: " + forecastData[index].avehumidity + "%";
+				$('#fcast-details-right>p').eq(1).text(humidity);
+				wind = "Wind: " + forecastData[index].avewind.kph + " km/h";
+				$('#fcast-details-right>p').eq(2).text(wind);
+			}
+
+			buildFcstGallery()
+
+			ajaxGet("https://api.wunderground.com/api/4887ee154feed2a3/forecast10day/q/Canada/Vancouver.json", function (reponse) {
+				weather = JSON.parse(reponse);
+				var forecast = weather.forecast.simpleforecast.forecastday;
+				
+				updateFcstGallery(forecast)
+
+				$('.fcast-day-card').on('click', function(event) {
+
+					$('.fcast-day-card').css('box-shadow', '')
+					$(this).css('box-shadow', '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)');
+
+					var index = $(this).attr('data-day-num')
+
+					updateFcstDay(index, forecast)
+				})
+
+				$('#fcast-day0').trigger('click');
+			})
+
+      })
+     </script>
+
+</body>
+</html>

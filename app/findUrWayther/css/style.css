@@ -1,0 +1,113 @@
+body {
+	background-color: #e2e1e0;
+	font-family: Verdana, Geneva, sans-serif;
+	color: #80807B;
+}
+
+#main-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#content-frame {
+	display: flex;
+	flex-direction: column;
+	margin-top: 100px;
+	background-color: white;
+	border-radius: 2px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	width:85%;
+}
+
+#location {
+	font-size: 2em;
+	font-weight: bold;
+	margin-bottom: 0;
+	margin-left: 15px;
+}
+
+#long-date {
+	margin-top: 5px;
+	margin-bottom: 3px;
+	margin-left: 15px;
+}
+
+#fcast-text {
+	margin-top: 5px;
+	margin-bottom: 0;
+	margin-left: 15px;
+}
+
+#conditions {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#fcast-details-left {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-left: 15px;
+}
+
+#temperature {
+	font-size: 2.5em;
+	color: black;
+	margin-left: 5px;
+}
+
+#fcast-details-right {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align:left;
+	width: 25%;
+}
+
+#fcast-details-right p {
+	margin-top: 5px;
+	margin-right: 15px;
+	word-wrap: break-word;
+}
+
+#fcast-gallery {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 15px; 
+
+}
+
+.fcast-day-card {
+	width: auto;
+	text-align: center;
+	margin: 15px;
+	cursor: pointer;
+}
+
+
+.fcast-logo2 {
+	margin-top: 0px;
+}
+
+.temperature-maxmin {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.temperature-max {
+	margin-right: 5px;
+	margin-left: 5px;
+	color: #666662;
+}
+
+.temperature-min {
+	margin-right: 5px;
+	margin-left: 5px;
+	color: #a5a5a2;
+}
