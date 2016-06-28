@@ -32,7 +32,7 @@
 					<p>Small weather app using data from the WeatherUnderground API and reproducing
 						 Google's weather app UI.</p>
 					<div class="card-logos">
-						<div class="card-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/512px-Unofficial_JavaScript_logo_2.svg.png" alt="JavaScript logo"></div>
+						<div class="card-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/SQLite370.svg/1280px-SQLite370.svg.png" alt="JavaScript logo"></div>
 						<div class="card-logo"><img src="http://precision-software.com/wp-content/uploads/2014/04/jQurery.gif" alt="JavaScript logo"></div>
 					</div>
 					<div class="card-demo-link"><a href="app/findUrWayther/index.html" target="_blank"> >>> Web Demo</a></div>
@@ -65,15 +65,23 @@
 			var logos = {
 				"javascript" : { 
 					"logo-name":"JavaScript",
-					"logo-url":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/512px-Unofficial_JavaScript_logo_2.svg.png"
+					"logo-url":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/512px-Unofficial_JavaScript_logo_2.svg.png",
+					"logo-width":"64px"
 				},
 				"jquery" : {
 					"logo-name":"jQuery",
-					"logo-url":"http://precision-software.com/wp-content/uploads/2014/04/jQurery.gif"
+					"logo-url":"http://precision-software.com/wp-content/uploads/2014/04/jQurery.gif",
+					"logo-width":"64px"
 				},
 				"python" : {
 					"logo-name":"Python",
-					"logo-url":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1024px-Python-logo-notext.svg.png"
+					"logo-url":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1024px-Python-logo-notext.svg.png",
+					"logo-width":"64px"
+				},
+				"sqlite" : {
+					"logo-name":"SQLite",
+					"logo-url":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/SQLite370.svg/2000px-SQLite370.svg.png",
+					"logo-width":"135px"
 				}
 			}
 
@@ -96,8 +104,9 @@
 
 				for (var j = 0; j < projects[i].logos.length; j++) {
 					logoSrc = logos[projects[i].logos[j]]["logo-url"];
-					logoAlt = logos[projects[i].logos[j]]["logo-name"];;
-					cardLogo = $('<div class="card-logo"><img src="' + logoSrc + '" alt="' + logoAlt + '"</div>');
+					logoAlt = logos[projects[i].logos[j]]["logo-name"];
+					logoWidth = logos[projects[i].logos[j]]["logo-width"];
+					cardLogo = $('<div class="card-logo"><img width="' + logoWidth + '" src="' + logoSrc + '" alt="' + logoAlt + '"</div>');
 					cardLogo.appendTo($('.card-logos').eq(i));
 				}
 				

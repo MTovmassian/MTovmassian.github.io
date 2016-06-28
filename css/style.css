@@ -45,7 +45,7 @@ header {
 .main-content {
 	display: flex;
 	flex-direction: row;
-	justify-content: left;
+	justify-content: flex-start;
 	flex-wrap: wrap;
 	background-color: white;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -60,7 +60,7 @@ header {
 	height: 256px;
 	background-color: white;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-	margin: 15px;
+	margin: 1%;
 }
 
 .card-hdr {
@@ -77,6 +77,10 @@ header {
 	font-size: 1.5em;
 	font-weight: bold;
 	text-decoration: italic;
+}
+
+.card-hdr:hover > p {
+	color: white;
 }
 
 .card-body > p {
@@ -102,8 +106,7 @@ header {
 }
 
 .card-logo > img {
-	width: 64px;
-	height-max: 64px;
+	max-height: 64px;
 }
 
 .card-demo-link {
