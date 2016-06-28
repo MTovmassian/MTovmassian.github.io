@@ -13,11 +13,16 @@ body {
 #content-frame {
 	display: flex;
 	flex-direction: column;
-	margin-top: 100px;
 	background-color: white;
 	border-radius: 2px;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	width:85%;
+}
+
+@media all and (max-width: 1024px) {
+	#content-frame {
+		width: 95%;
+	}
 }
 
 #location {
@@ -82,10 +87,16 @@ body {
 
 }
 
+@media all and (max-width: 1024px) {
+	#fcast-gallery {
+		justify-content: flex-start;
+	}
+}
+
 .fcast-day-card {
 	width: auto;
 	text-align: center;
-	margin: 15px;
+	margin: 1%;
 	cursor: pointer;
 }
 
