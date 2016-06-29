@@ -49,8 +49,9 @@
 				{
 					"project-name":"findUrWayther",
 					"repo-url":"https://github.com/MTovmassian/MTovmassian.github.io/tree/master/app/findUrWayther",
-					"purpose":"Weather app using data from the WeatherUnderground API and reproducing Google's weather app UI.",
+					"purpose":"Weather app using data from the <i>WeatherUnderground API</i> and reproducing Google's weather app UI.",
 					"logos":["javascript", "jquery"],
+					"kwords":["web", "ftend", "api"],
 					"webdemo-url":"https://mtovmassian.github.io/app/findUrWayther/index.html" 
 				},
 								{
@@ -58,6 +59,7 @@
 					"repo-url":"https://github.com/MTovmassian/MTovmassian.github.io/tree/master/app/techNoSense",
 					"purpose":"Fun app that generates random foolish geek quotes in French.",
 					"logos": ["javascript"],
+					"kwords":["web", "ftend", "fun"],
 					"webdemo-url":"https://mtovmassian.github.io/app/techNoSense/index.html"
 				},
 			];
@@ -82,7 +84,23 @@
 					"logo-name":"SQLite",
 					"logo-url":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/SQLite370.svg/2000px-SQLite370.svg.png",
 					"logo-width":"135px"
+				},
+				"postgis" : {
+					"logo-name":"PostGIS",
+					"logo-url":"https://upload.wikimedia.org/wikipedia/commons/7/7b/Logo_square_postgis.png",
+					"logo-width":"64px"
 				}
+			}
+
+			var kwords = {
+				"web":"Web",
+				"ftend":"Front-end",
+				"bkend":"Back-end",
+				"api":"API",
+				"util":"utility",
+				"gis":"GIS",
+				"dbms":"DBMS",
+				"fun":"Fun"
 			}
 
 			for (var i = 0; i < projects.length; i++) {
@@ -110,9 +128,16 @@
 					cardLogo.appendTo($('.card-logos').eq(i));
 				}
 				
+				cardKwords = $('<div class="card-kwords"><p></p></div>');
+				cardKwords.appendTo($('.card-body').eq(i));
+				for (var k = 0; k < projects[i].kwords.length; k++) {
+					kword = kwords[projects[i].kwords[k]];
+					($('.card-kwords > p').eq(i)).append("*" + kword + " ");
+				}
+
 				if(projects[i]['webdemo-url']) {
 					webDemoUrl = projects[i]['webdemo-url'];
-					cardDemoLink = $('<div class="card-demo-link"><a href="' + webDemoUrl + '" target="_blank"> >>> Web Demo</a></div>');
+					cardDemoLink = $('<button class="card-demo-link"><a href="' + webDemoUrl + '" target="_blank"> >>> Web demo</a></button>');
 					cardDemoLink.appendTo($('.card-body').eq(i));
 				}				 
 			}
