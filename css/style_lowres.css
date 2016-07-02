@@ -1,0 +1,125 @@
+body {
+	background-color: rgba(243,243,242, 1);
+	font-family: Verdana;
+	margin: 1%; 
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.hdr {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background-color: white;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.hdr-img-l > img{
+	width: 128px;
+}
+
+.hdr-img-r > img{
+	width: 95px;
+}
+
+.hdr-title > p {
+	text-align: center;
+	font-size: 5em;
+	margin: 15px;
+	padding: 15px;
+}
+
+.main-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	background-color: white;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	margin-top: 50px;
+	padding-top: 15px;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	word-wrap: break-word;
+	width: auto;
+	height: 420px;
+	background-color: white;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-bottom: 50px;
+}
+
+.card-hdr {
+	text-decoration: none;
+	color: black;
+	display: block;
+	background-color: rgba(226,225,224, 1);
+}
+
+.card-hdr > p {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 15px;
+	font-size: 2.4em;
+	font-weight: bold;
+	text-decoration: italic;
+}
+
+.card-hdr:hover > p {
+	color: white;
+}
+
+.card-body > p {
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 140px;
+	text-align: justify;
+	font-size: 1.5em;
+	margin-bottom: 5px;
+}
+
+.card-logos {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+	margin-top: 5px;
+}
+
+.card-logos > div {
+	height: 64px;
+	margin-left: 15px;
+}
+
+.card-logo > img {
+	max-height: 64px;
+}
+
+
+.card-kwords > p {
+	margin-left: 15px;
+	color: rgba(97,168,197, 1);
+	font-weight: bold;
+	font-style: italic;
+	font-size: 1.5em;
+}
+
+.card-demo-link {
+	margin-left: 15px;
+	width: 50%;
+	height: 40px;
+	color: rgba(74, 74, 73, 1);
+	font-size: 1.8em;
+	font-weight: bold;
+}
