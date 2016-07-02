@@ -5,6 +5,8 @@
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 	<meta name="Content-language" content="english">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" media="all and (min-width: 701px) and (max-width: 1024px)" href="css/style_mediumres.css">
+	<link rel="stylesheet"  media="all and (max-width: 700px)" href="css/style_lowres.css">
 	<title>My Coding Lab</title>
 </head>
 
@@ -12,14 +14,16 @@
 	<div class="main-frame">
 
 		<header>
-			<div class="hdr-img-l">
-				<img src="http://image.flaticon.com/icons/svg/123/123417.svg" alt="Geek boy">
-			</div>
-			<div class="hdr-title">
-				<p>My Coding Lab</p>
-			</div>
-			<div class="hdr-img-r">
-				<img src="http://image.flaticon.com/icons/svg/123/123381.svg" alt="Chemistry flask">
+			<div class="hdr">
+				<div class="hdr-img-l">
+					<img src="http://image.flaticon.com/icons/svg/123/123417.svg" alt="Geek boy">
+				</div>
+				<div class="hdr-title">
+					<p>My Coding Lab</p>
+				</div>
+				<div class="hdr-img-r">
+					<img src="http://image.flaticon.com/icons/svg/123/123381.svg" alt="Chemistry flask">
+				</div>
 			</div>
 		</header>
 
@@ -132,13 +136,19 @@
 				cardKwords.appendTo($('.card-body').eq(i));
 				for (var k = 0; k < projects[i].kwords.length; k++) {
 					kword = kwords[projects[i].kwords[k]];
-					($('.card-kwords > p').eq(i)).append("*" + kword + " ");
+					if (k < projects[i].kwords.length - 1){
+						($('.card-kwords > p').eq(i)).append(kword + ", ");
+					} else {
+						($('.card-kwords > p').eq(i)).append(kword);
+					}
+
 				}
 
 				if(projects[i]['webdemo-url']) {
 					webDemoUrl = projects[i]['webdemo-url'];
-					cardDemoLink = $('<button class="card-demo-link"><a href="' + webDemoUrl + '" target="_blank"> >>> Web demo</a></button>');
+					cardDemoLink = $('<input class="card-demo-link" type="button" value="Web demo">');
 					cardDemoLink.appendTo($('.card-body').eq(i));
+					$('.card-demo-link').eq(i).attr('onclick', 'window.open("' + webDemoUrl + '")');
 				}				 
 			}
 

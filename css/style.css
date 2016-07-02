@@ -9,9 +9,23 @@ header {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+}
+
+.hdr {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 60%;
 	background-color: white;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
+
+/*@media all and (max-width: 1024px) {
+	.hdr {
+	width: 100%;
+	}
+}*/
 
 .hdr-img-l > img{
 	width: 128px;
@@ -21,7 +35,6 @@ header {
 	width: 95px;
 }
 
-
 .hdr-title > p {
 	text-align: center;
 	font-size: 3em;
@@ -29,7 +42,7 @@ header {
 	padding: 15px;
 }
 
-@media all and (max-width: 1024px) {
+/*@media all and (max-width: 1024px) {
 	.hdr-img-l > img{
 	width: 100px;
 	}
@@ -40,7 +53,8 @@ header {
 	.hdr-title > p {
 		margin: 0px;
 	}
-}
+}*/
+
 
 .main-content {
 	display: flex;
@@ -50,6 +64,7 @@ header {
 	background-color: white;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	margin-top: 20px;
+	padding-top: 0px;
 }
 
 .card {
@@ -113,22 +128,20 @@ header {
 .card-kwords > p {
 	margin-left: 15px;
 	color: rgba(97,168,197, 1);
+	font-size: 1em;
 	font-weight: bold;
 	font-style: italic;
 }
 
 .card-demo-link {
 	margin-left: 15px;
-}
-
-.card-demo-link > a {
+	color: rgba(74, 74, 73, 1);
+	font-size: 1em;
 	font-weight: bold;
-	color: black;
-	text-decoration: none;
 }
 
-@media all and (max-width: 1024px) {
+/*@media all and (max-width: 1024px) {
 	.card {
 		width: 100%;
 	}
-}
+}*/
