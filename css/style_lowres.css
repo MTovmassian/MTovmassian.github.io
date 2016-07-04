@@ -123,7 +123,7 @@ header {
 
 .card-demo-link {
 	margin-left: 15px;
-	width: 50%;
+	width: auto;
 	height: 40px;
 	color: rgba(74, 74, 73, 1);
 	font-size: 1.8em;
